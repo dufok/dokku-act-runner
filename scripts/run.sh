@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+# Get the path to the config.yaml file from environment variable or set to default
+CONFIG_FILE_PATH=${CONFIG_FILE_PATH:-"/conf/config.yaml"}
+
+# Check if config.yaml exists and create if not
+if [[ ! -f "$CONFIG_FILE_PATH" ]]; then
+  echo "config.yaml does not exist at $CONFIG_FILE_PATH, generating..."
+  act_runner generate-config > $CONFIG_FILE_PATH
+  echo "config.yaml has been created at $CONFIG_FILE_PATH You may want to edit this file before proceeding."
+  exit 0
+fi
+
 if [[ ! -d /data ]]; then
   mkdir -p /data
 fi
