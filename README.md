@@ -74,3 +74,5 @@ Repository need rules to be runneble with actions:
               git_remote_url: 'ssh://dokku@staging.discours.io:22/${{ steps.repo_name.outputs.repo }}'
               ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
     ```
+
+    ttt
