@@ -8,7 +8,7 @@ WORKDIR /opt/src/act_runner
 RUN make clean && make build
 
 FROM alpine:3.18
-RUN apk add --no-cache git bash tini
+RUN apk add --no-cache git bash tini docker
 
 COPY --from=builder /opt/src/act_runner/act_runner /usr/local/bin/act_runner
 COPY scripts/run.sh /opt/act/run.sh
